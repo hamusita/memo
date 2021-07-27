@@ -2,6 +2,7 @@ import ctypes
 import numpy as np
 import multiprocessing as mp
 import cv2
+import pickle
 
 def valueToNdarray(v):
     return np.ctypeslib.as_array(v.get_obj())  # Valueからndarrayに変換
@@ -20,7 +21,8 @@ def filter(v):
 
 if __name__ == '__main__':
     # 適当な画像からndarrayの生成
-    input_img = cv2.imread("画像ファイルのパス")
+    input_img = cv2.imread(r"img_path")
+    print(type(input_img))
 
     # Valueに変換
     v = ndarrayToValue(input_img)
